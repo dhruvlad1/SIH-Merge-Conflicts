@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panchakarma Login</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d4edda, #e0f7fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #ffffffcc;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .input-group input, 
+    .input-group select {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #bdbdbd;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #1b5e20;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Panchakarma Login</h2>
+    <div class="error-message" id="error-message"></div>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <div class="input-group">
+        <label for="role">Login as</label>
+        <select id="role" required>
+          <option value="" disabled selected>Select role</option>
+          <option value="doctor">Doctor</option>
+          <option value="patient">Patient</option>
+        </select>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('error-message');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const role = document.getElementById('role').value;
+
+      if (!email || !password || !role) {
+        errorMessage.textContent = 'Please fill all the fields!';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      errorMessage.style.display = 'none';
+
+      // Placeholder login logic
+      alert(`Logged in as ${role} with email: ${email}`);
+      // Here you can add real authentication logic with backend
+    });
+  </script>
+</body>
+</html>
