@@ -98,6 +98,13 @@ section.active {
 }
 
 /* Calendar */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -108,15 +115,30 @@ section.active {
 #calendar div {
     padding: 10px;
     text-align: center;
-    background-color: #e0f0ec;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-#calendar div:hover {
-    background-color: #3fa796;
-    color: white;
+#calendar div.weekday {
+    font-weight: bold;
+    background-color: transparent;
+    cursor: default;
+}
+
+#calendar div.today {
+    background-color: #ffcf85;
+    font-weight: bold;
+}
+
+#calendar div.booked {
+    background-color: #f28b82 !important;
+    color: white !important;
+    cursor: not-allowed !important;
+}
+
+#calendar div.weekend {
+    background-color: #d3f0e0;
 }
 
 /* Timeline for medical records */
